@@ -1,8 +1,16 @@
 import React from 'react';
+import Banner from './Banner';
 
 const Home = () => {
     return (
-        <h1>home</h1>
+        <>
+       
+        {/* Banner */}
+        <section className='mt-6'>
+        <Banner></Banner>
+        </section>
+        
+        </>
     );
 };
 

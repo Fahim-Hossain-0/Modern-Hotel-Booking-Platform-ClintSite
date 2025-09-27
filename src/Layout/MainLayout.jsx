@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 const MainLayout = () => {
     return (
       <>
-      <header>
+      <header className='w-[95%] mx-auto pt-1'>
         <Navbar></Navbar>
       </header>
       <main>

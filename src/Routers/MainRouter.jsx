@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Pages/Form/Register";
 import Login from "../Pages/Form/Login";
+import Rooms from "../Pages/RoomsPage/Rooms";
 // import AuthLayout from "../Layout/AuthLayout";
 
 export const router = createBrowserRouter([
@@ -12,8 +13,13 @@ export const router = createBrowserRouter([
         Component: MainLayout,
         children: [
             {   
+                index:true,
                 path: "/",
                 Component:Home
+            },
+            {
+                path: "/RoomsPage",
+                Component: Rooms
             }
         ]   
        },
