@@ -7,7 +7,7 @@ const Navbar = () => {
   const {user,signOutUser} = useContext(AuthContext)
     const links = <>
       <li><NavLink to='/'>Home</NavLink></li>
-      <li><NavLink to='/RoomsPage'>Rooms Page</NavLink></li>
+      <li><NavLink to='/rooms'>Rooms Page</NavLink></li>
     </>
   const handleSingOut = () => {
     signOutUser().catch(error => console.error(error));

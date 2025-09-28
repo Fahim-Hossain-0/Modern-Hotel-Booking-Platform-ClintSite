@@ -3,12 +3,13 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import banner1 from '../../assets/banner1.jpg'
-import banner2 from '../../assets/banner2.jpg'
-import banner3 from '../../assets/banner3.jpg'
-import banner4 from '../../assets/banner4.jpg'
-import banner5 from '../../assets/banner5.jpg'
-import banner6 from '../../assets/banner6.jpg'
+import banner1 from '../assets/banner1.jpg'
+import banner2 from '../assets/banner2.jpg'
+import banner3 from '../assets/banner3.jpg'
+import banner4 from '../assets/banner4.jpg'
+import banner5 from '../assets/banner5.jpg'
+import banner6 from '../assets/banner6.jpg'
+import { Link } from "react-router";
 
 
 const BannerCarousel = () => {
@@ -45,7 +46,12 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Experience Luxury, Comfort & Elegance</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Indulge in world-class amenities and personalized service.</p>
+
+               <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
             </div>
+            </div>
+           
           </div>
         </SwiperSlide>
 
@@ -60,6 +66,10 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Your Perfect Stay Awaits</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Relax in beautifully designed rooms made just for you.</p>
+                             <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+            </div>
+
             </div>
           </div>
         </SwiperSlide>
@@ -75,6 +85,10 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Unwind in Style, Stay with Us</h2>
               <p className="mt-2 text-lg font-medium opacity-50">From cozy suites to fine dining — everything at your fingertips.</p>
+                             <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+            </div>
+
             </div>
           </div>
         </SwiperSlide>
@@ -89,6 +103,11 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Discover Hospitality Like Never Before</h2>
               <p className="mt-2 text-lg font-medium opacity-50">A warm welcome, premium comfort, and unforgettable memories.</p>
+
+                             <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+            </div>
+
             </div>
           </div>
         </SwiperSlide>
@@ -103,6 +122,10 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Where Comfort Meets Affordability</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Enjoy a premium experience at a price you’ll love.</p>
+                             <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+            </div>
+
             </div>
           </div>
         </SwiperSlide>
@@ -117,6 +140,10 @@ const BannerCarousel = () => {
             <div className="absolute bg-black/50 inset-0 flex flex-col items-center justify-center">
               <h2 className="text-5xl font-bold banner-font">Book Your Dream Stay Today</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Seamless booking, luxury stays, and lasting experiences.</p>
+                             <div className="mt-4">
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+            </div>
+
             </div>
           </div>
         </SwiperSlide>
