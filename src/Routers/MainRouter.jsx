@@ -6,6 +6,7 @@ import Register from "../Pages/Form/Register";
 import Login from "../Pages/Form/Login";
 import Rooms from "../Pages/RoomsPage/Rooms";
 import RoomsDetails from "../Pages/RoomsPage/RoomsDetails";
+import MyBookingPage from "../Pages/MyBookingPage/MyBookingPage";
 // import AuthLayout from "../Layout/AuthLayout";
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: "/rooms/:id",
                 Component:RoomsDetails
+            },
+            {
+                path: "/my-booking",
+                Component:MyBookingPage
             }
         ]   
        },

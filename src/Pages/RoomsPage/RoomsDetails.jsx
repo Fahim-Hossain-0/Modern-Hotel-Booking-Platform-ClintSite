@@ -9,9 +9,6 @@ function RoomDetails() {
 
   useEffect(() => {
     axios.get(`http://localhost:5000/rooms/${id}`).then(res => setRoom(res.data));
-    // fetch(`http://localhost:5000/rooms/${id}`)
-    //   .then(res => res.json())
-    //   .then(data => setRoom(data));
   }, [id]);
 
   if (!room) return <p>Loading...</p>;

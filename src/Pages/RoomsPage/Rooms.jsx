@@ -8,10 +8,7 @@ function Rooms() {
 
   useEffect(() => {
     axios.get("http://localhost:5000/rooms").then(res => setRooms(res.data));
-    // //
-    // fetch("http://localhost:5000/rooms")
-    //   .then(res => res.json())
-    //   .then(data => setRooms(data));
+    
   }, []);
 
   return (
