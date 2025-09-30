@@ -7,6 +7,7 @@ import Login from "../Pages/Form/Login";
 import Rooms from "../Pages/RoomsPage/Rooms";
 import RoomsDetails from "../Pages/RoomsPage/RoomsDetails";
 import MyBookingPage from "../Pages/MyBookingPage/MyBookingPage";
+import MyBookingDetails from "../Pages/MyBookingPage/MyBookingDetails";
 // import AuthLayout from "../Layout/AuthLayout";
 
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: "/my-booking",
                 Component:MyBookingPage
+            },
+            {
+                path:"/my-booking/:id",
+                Component:MyBookingDetails
             }
         ]   
        },

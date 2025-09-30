@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Context/AuthContext";
 
-const BookingNow = ({ room }) => {
+const BookingNowButton = ({ room }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -57,51 +57,7 @@ const BookingNow = ({ room }) => {
       });
     }
   };
-  const handleBookedCancel = async () => {
-    try {
-      // Room must already be booked (availability === false) to cancel
-      if (availability) {
-        Swal.fire({
-          icon: "warning",
-          title: "Room Not Booked",
-          text: "This room is already available, nothing to cancel!",
-        });
-        return;
-      }
-
-      await axios.patch(`http://localhost:5000/rooms/${room._id}`, {
-        availability: true,
-        bookedDate: null, // reset booked date
-        bookedBy: null,
-        email: null,
-        // availability: false,
-        // bookedDate: selectedDate,
-      });
-
-      // update local state
-      setLocalRoom((prev) => ({
-        ...prev,
-        availability: true,
-        bookedDate: null,
-      }));
-
-      setIsModalOpen(false);
-      Swal.fire({
-        icon: "success",
-        title: "Booking Cancelled",
-        text: `${name} booking has been cancelled successfully!`,
-        timer: 2000,
-        showConfirmButton: false,
-      });
-    } catch (error) {
-      console.error("Cancel booking failed:", error);
-      Swal.fire({
-        icon: "error",
-        title: "Cancel Failed",
-        text: "There was an issue cancelling the booking. Please try again later.",
-      });
-    }
-  };
+  
 
   return (
     <>
@@ -116,8 +72,7 @@ const BookingNow = ({ room }) => {
           Book Now
         </button>
       ) : (
-        <button
-          onClick={handleBookedCancel}
+        <button 
           className="btn btn-secondary mt-4 bg-red-950"
         >
           Not Available
@@ -125,24 +80,7 @@ const BookingNow = ({ room }) => {
       )}
 
       {/* Modal */}
-      {/* {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg w-80">
-            <h2 className="text-xl font-semibold mb-2">{name}</h2>
-            <p className="mb-4">
-              Price: {currency} {pricePerNight} per night
-            </p>
-            <div className="flex justify-end gap-2">
-              <button onClick={handleCancel} className="btn btn-secondary">
-                Cancel
-              </button>
-              <button onClick={handleConfirmBooking} className="btn btn-primary">
-                Book
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
+      
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-80">
@@ -186,4 +124,4 @@ const BookingNow = ({ room }) => {
   );
 };
 
-export default BookingNow;
+export default BookingNowButton;

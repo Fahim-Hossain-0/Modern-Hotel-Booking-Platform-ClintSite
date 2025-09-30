@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import BookingNow from "./BookingNow";
+import BookingNowButton from "./BookingNowButton";
 import axios from "axios";
 
 function RoomDetails() {
@@ -22,7 +22,7 @@ function RoomDetails() {
         Price: {room.pricePerNight} {room.currency} / night
       </p>
         <div>
-            <BookingNow room={room}></BookingNow>
+            <BookingNowButton room={room}></BookingNowButton>
         </div>
       <h2 className="text-xl font-semibold mt-6">Reviews ({room.reviews?.length || 0})</h2>
       <div className="mt-4 space-y-3">

@@ -21,8 +21,12 @@ function Rooms() {
         >
           <img src={room.image} alt={room.name} className="w-full h-48 object-cover rounded-t-lg" />
           <div className="p-4">
+            <h1 className="text-3xl">{room.id}</h1>
             <h2 className="font-bold text-lg">{room.name}</h2>
-            <p>{room.pricePerNight} {room.currency} / night</p>
+        <div>
+                      <p className="">{room.pricePerNight} {room.currency} / night</p>
+                                  <p className="text-3xl">{room.availability?'ase room':'room nai'}</p>
+        </div>
             <p className="text-sm text-gray-500">
               {room.reviews?.length || 0} Reviews
             </p>
