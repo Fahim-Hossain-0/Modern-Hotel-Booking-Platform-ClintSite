@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import Loading from "../../Components/Loading";
 import MyBookingButton from "./MybookingButton";
+import RoomReviews from "./RoomReviews";
 
 const MyBookingDetails = () => {
   const { id } = useParams();
@@ -35,6 +36,16 @@ const MyBookingDetails = () => {
       <p className="text-gray-700">Booked By: {booking.bookedBy}</p>
       <p className="text-gray-700">Email: {booking.email}</p>
       <MyBookingButton booking={booking}></MyBookingButton>
+
+      {/* <div className="mt-4 space-y-3">
+        {booking.reviews?.map((rev, index) => (
+          <div key={index} className="border p-3 rounded">
+            <p className="font-semibold">{rev.user} ⭐ {rev.rating}</p>
+            <p>{rev.comment}</p>
+          </div>
+        ))}
+      </div> */}
+      {/* <RoomReviews></RoomReviews> */}
     </div>
   );
 };
