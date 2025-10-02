@@ -1,15 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Loading from "../../Components/Loading";
 
 function Rooms() {
-  const [rooms, setRooms] = useState([]);
-  const navigate = useNavigate();
+    const [rooms, setRooms] = useState([]);
+    const [loading, setLoading] = useState(true); // ✅ start as true
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/rooms").then(res => setRooms(res.data));
-    
-  }, []);
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/rooms")
+            .then((res) => {
+                setRooms(res.data);
+                setLoading(false); // ✅ stop loading after data arrives
+            })
+            .catch(() => setLoading(false)); // ✅ stop loading even on error
+    }, []);
+
+    if (loading) {
+        return <Loading />; // ✅ must return here
+    }
 
   return (
     <div className="grid grid-cols-3 gap-6 p-6">

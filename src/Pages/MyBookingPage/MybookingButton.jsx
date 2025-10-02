@@ -79,6 +79,7 @@ const MyBookingButton = ({ booking }) => {
 
         try {
             await axios.patch(`http://localhost:5000/rooms/${booking._id}`, {
+                
                 bookedDate: selectedDate,
             });
 
@@ -174,7 +175,7 @@ const MyBookingButton = ({ booking }) => {
 
       try {
           // Send to backend to add to reviews array
-         await axios.patch(`http://localhost:5000/rooms/${booking._id}`, {
+         await axios.post(`http://localhost:5000/rooms/${booking._id}`, {
              review: newReview,
          });
 
