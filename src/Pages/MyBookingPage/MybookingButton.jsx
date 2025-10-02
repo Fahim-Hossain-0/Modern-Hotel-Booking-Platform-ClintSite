@@ -107,54 +107,7 @@ const MyBookingButton = ({ booking }) => {
         }
     };
 
-    // ---------- Submit Review ----------
-    // const handleSubmitReview = async () => {
-    //     if (!rating || !comment.trim()) {
-    //         Swal.fire({
-    //             icon: "warning",
-    //             title: "Incomplete Review",
-    //             text: "Please add both rating and comment.",
-    //         });
-    //         return;
-    //     }
-
-    //     const newReview = {
-    //         user: user?.displayName,
-    //         rating,
-    //         comment,
-    //         timestamp: new Date(),
-    //     };
-
-    //     try {
-    //         await axios.patch(`http://localhost:5000/rooms/${booking._id}`, {
-    //             review: newReview,
-    //         });
-
-    //         setLocalBooking((prev) => ({
-    //             ...prev,
-    //             reviews: [...(prev.reviews || []), newReview],
-    //         }));
-
-    //         setComment("");
-    //         setRating(0);
-    //         setIsReviewModalOpen(false);
-
-    //         Swal.fire({
-    //             icon: "success",
-    //             title: "Review Submitted",
-    //             text: "Thank you for your feedback!",
-    //             timer: 2000,
-    //             showConfirmButton: false,
-    //         });
-    //     } catch (error) {
-    //         console.error("Review failed:", error);
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: "Submit Failed",
-    //             text: "There was an issue submitting your review. Please try again later.",
-    //         });
-    //     }
-    // };
+    
 
   const handleSubmitReview = async () => {
       if (!rating || !comment.trim()) {
@@ -175,9 +128,10 @@ const MyBookingButton = ({ booking }) => {
 
       try {
           // Send to backend to add to reviews array
-         await axios.post(`http://localhost:5000/rooms/${booking._id}`, {
+         await axios.post(`http://localhost:5000/rooms/review/${booking._id}`, {
              review: newReview,
          });
+
 
 
 
