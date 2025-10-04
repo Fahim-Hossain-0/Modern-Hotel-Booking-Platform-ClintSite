@@ -45,7 +45,7 @@ const MyBookingDetails = () => {
           </div>
         ))}
       </div> */}
-      {/* <RoomReviews></RoomReviews> */}
+      <RoomReviews booking={booking}></RoomReviews>
     </div>
   );
 };

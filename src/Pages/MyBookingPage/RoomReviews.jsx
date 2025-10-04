@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const RoomReviews = ({ roomId }) => {
+const RoomReviews = ({ booking }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/rooms/${roomId}`)
+    axios.get(`http://localhost:5000/rooms/${booking._id}`)
       .then(res => setReviews(res.data.reviews || []))
       .catch(err => console.error(err));
-  }, [roomId]);
+  }, [booking]);
 
   return (
     <div className="mt-6">
