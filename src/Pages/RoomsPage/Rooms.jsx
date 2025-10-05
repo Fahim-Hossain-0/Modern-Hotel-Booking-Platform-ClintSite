@@ -8,14 +8,16 @@ function Rooms() {
   const [loading, setLoading] = useState(true);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [sortOrder, setSortOrder] = useState(""); // asc or desc
+  const [sortOrder, setSortOrder] = useState("");
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchRooms();
-  }, []);
+    fetchRooms(page);
+  }, [page]);
 
-  const fetchRooms = async (filter = {}) => {
+  const fetchRooms = async (page, filter = {}) => {
     setLoading(true);
     try {
       const params = new URLSearchParams();
@@ -23,9 +25,20 @@ function Rooms() {
       if (filter.maxPrice) params.append("maxPrice", filter.maxPrice);
       if (filter.sortOrder) params.append("sortOrder", filter.sortOrder);
 
+      params.append("limit", 6);
+      params.append("page", page);
+
       const url = `http://localhost:5000/rooms?${params.toString()}`;
       const res = await axios.get(url);
-      setRooms(res.data);
+
+      // If it's page 1, reset data. If load more, append.
+      if (page === 1) {
+        setRooms(res.data.data);
+      } else {
+        setRooms((prev) => [...prev, ...res.data.data]);
+      }
+
+      setTotalPages(res.data.totalPages);
     } catch (err) {
       console.error("Error fetching rooms:", err);
     }
@@ -34,10 +47,11 @@ function Rooms() {
 
   const handleFilter = (e) => {
     e.preventDefault();
-    fetchRooms({ minPrice, maxPrice, sortOrder });
+    setPage(1); // reset to first page when filter applied
+    fetchRooms(1, { minPrice, maxPrice, sortOrder });
   };
 
-  if (loading) return <Loading />;
+  if (loading && page === 1) return <Loading />;
 
   return (
     <div className="p-6">
@@ -102,9 +116,20 @@ function Rooms() {
           </div>
         ))}
       </div>
+
+      {/* Load More Button */}
+      {page < totalPages && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setPage((prev) => prev + 1)}
+            className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 cursor-pointer"
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Rooms;
-  

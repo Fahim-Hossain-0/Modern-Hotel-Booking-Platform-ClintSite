@@ -3,6 +3,8 @@ import Banner from '../../Components/Banner';
 // import Map from '../../Components/MapViwe';
 import MapView from '../../Components/MapViwe';
 import TopRoom from './TopRoom';
+import Reviwe from '../../Components/Reviews';
+import Reviews from '../../Components/Reviews';
 
 const Home = () => {
     return (
@@ -23,6 +25,10 @@ const Home = () => {
 
       <TopRoom></TopRoom>
 
+        </section>
+
+        <section>
+          <Reviews></Reviews>
         </section>
         </>
     );
