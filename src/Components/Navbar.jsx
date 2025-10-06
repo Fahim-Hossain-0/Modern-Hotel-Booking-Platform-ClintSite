@@ -14,7 +14,7 @@ const Navbar = () => {
     signOutUser().catch(error => console.error(error));
   } 
     return (
-       <div className="navbar">
+       <div className="navbar w-[95%] mx-auto py-5 text-[#F3F4F6]">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,14 +22,14 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className=" space-y-1 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-base">
+        className=" space-y-1 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-base ">
         {links}
       </ul>
     </div>
-    <a className=" text-3xl font-bold heading-font">Hotel-Motle</a>
+    <a className=" text-4xl font-black heading-font">Hotel-Motle</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="space-x-4 menu-horizontal px-1 text-base">
+    <ul className="space-x-4 menu-horizontal px-1 text-base font-[600]">
       {links}
     </ul>
   </div>

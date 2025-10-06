@@ -5,13 +5,17 @@ import MapView from '../../Components/MapViwe';
 import TopRoom from './TopRoom';
 import Reviwe from '../../Components/Reviews';
 import Reviews from '../../Components/Reviews';
+import Newsletter from './Newsletter';
+import FAQ from './FAQ ';
 
 const Home = () => {
     return (
         <>
-       
+
+
+
         {/* Banner */}
-        <section className='mt-6'>
+        <section className=''>
         <Banner></Banner>
         </section>
         <section className='py-24'>
@@ -29,6 +33,13 @@ const Home = () => {
 
         <section>
           <Reviews></Reviews>
+        </section>
+
+        <section>
+          <Newsletter></Newsletter>
+        </section>
+        <section>
+          <FAQ></FAQ>
         </section>
         </>
     );
