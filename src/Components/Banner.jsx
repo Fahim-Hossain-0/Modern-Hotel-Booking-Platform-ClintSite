@@ -37,7 +37,7 @@ const BannerCarousel = () => {
       >
         {/* Slide 1 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner1}
               alt="Slide 1"
@@ -57,7 +57,7 @@ const BannerCarousel = () => {
 
         {/* Slide 2 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner2}
               alt="Slide 2"
@@ -76,7 +76,7 @@ const BannerCarousel = () => {
 
         {/* Slide 3 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner3}
               alt="Slide 3"
@@ -94,7 +94,7 @@ const BannerCarousel = () => {
         </SwiperSlide>
         {/* Slide 4 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner4}
               alt="Slide 3"
@@ -113,7 +113,7 @@ const BannerCarousel = () => {
         </SwiperSlide>
         {/* Slide 5 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner5}
               alt="Slide 3"
@@ -131,7 +131,7 @@ const BannerCarousel = () => {
         </SwiperSlide>
         {/* Slide 6 */}
         <SwiperSlide>
-          <div className="relative h-[650px] flex items-center justify-center  text-white">
+          <div className="relative h-[700px] flex items-center justify-center  text-white">
             <img
               src={banner6}
               alt="Slide 3"

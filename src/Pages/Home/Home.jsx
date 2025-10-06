@@ -18,26 +18,28 @@ const Home = () => {
         <section className=''>
         <Banner></Banner>
         </section>
-        <section className='py-24'>
+        <section className='pt-24'>
           <div>
             <h1 className='text-7xl text-center py-5 mb-8'>Map </h1>
           </div>
           <MapView></MapView>
         </section>
         {/* top rated rooms */}
-        <section>
+        <section className='mt-34'>
 
       <TopRoom></TopRoom>
 
         </section>
 
-        <section>
+<section className='mt-20'>
+          <Newsletter></Newsletter>
+        </section>
+
+        <section className='mt-24'>
           <Reviews></Reviews>
         </section>
 
-        <section>
-          <Newsletter></Newsletter>
-        </section>
+        
         <section>
           <FAQ></FAQ>
         </section>

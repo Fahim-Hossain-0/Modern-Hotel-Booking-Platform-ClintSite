@@ -11,7 +11,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="bg-base-200 py-16 px-4 md:px-20 text-center">
+    <div className="w-[70%] mx-auto bg-white py-24 px-4 rounded md:px-20 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
         Subscribe to Our Newsletter
       </h2>
@@ -31,7 +31,7 @@ const Newsletter = () => {
           className="input input-bordered w-full md:w-96"
           required
         />
-        <button type="submit" className="btn btn-primary w-full md:w-auto">
+        <button type="submit" className="btn bg-[#FF6B6B] w-full md:w-auto">
           Subscribe
         </button>
       </form>

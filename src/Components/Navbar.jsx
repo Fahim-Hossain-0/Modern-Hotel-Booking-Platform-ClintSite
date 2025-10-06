@@ -6,9 +6,9 @@ const Navbar = () => {
 
   const {user,signOutUser} = useContext(AuthContext)
     const links = <>
-      <li><NavLink to='/'>Home</NavLink></li>
-      <li><NavLink to='/rooms'>Rooms Page</NavLink></li>
-      <li><NavLink to='/my-booking'>My booking</NavLink></li>
+      <li className=''><NavLink to='/'>Home</NavLink></li>
+      <li className=''><NavLink to='/rooms'>Rooms Page</NavLink></li>
+      <li className=''><NavLink to='/my-booking'>My booking</NavLink></li>
     </>
   const handleSingOut = () => {
     signOutUser().catch(error => console.error(error));
@@ -26,10 +26,10 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className=" text-4xl font-black heading-font">Hotel-Motle</a>
+    <a className=" text-4xl font-black heading-font">Hotel-Motel</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="space-x-4 menu-horizontal px-1 text-base font-[600]">
+    <ul className="space-x-3 menu-horizontal px-1 text-base font-[600]">
       {links}
     </ul>
   </div>

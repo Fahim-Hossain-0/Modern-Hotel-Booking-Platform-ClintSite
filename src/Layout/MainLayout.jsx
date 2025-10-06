@@ -8,7 +8,7 @@ const MainLayout = () => {
       <header className='bg-[#003366]'>
         <Navbar></Navbar>
       </header>
-      <main>
+      <main className='bg-[#EFEFEF]'>
        <section>
         <Outlet></Outlet>
        </section>

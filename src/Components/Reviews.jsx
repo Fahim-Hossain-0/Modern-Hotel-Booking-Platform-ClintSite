@@ -28,7 +28,7 @@ const Reviews = () => {
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-10">
+    <div className="w-full max-w-5xl mx-auto pb-24">
       <h2 className="text-3xl font-bold text-center mb-6">What Our Guests Say</h2>
 
       <Swiper
@@ -45,7 +45,7 @@ const Reviews = () => {
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <div className="card bg-base-100 shadow-xl p-6 h-full flex flex-col justify-between">
+            <div className="card bg-base-100 shadow-xl p-6 h-full flex flex-col justify-between mt-12">
               <div>
                 <h2 className="card-title mb-2">{review.user || "Anonymous"}</h2>
                 <Rating style={{ maxWidth: 120 }} value={review.rating} readOnly />
