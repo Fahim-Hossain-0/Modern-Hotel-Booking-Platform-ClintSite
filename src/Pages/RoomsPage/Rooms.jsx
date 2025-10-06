@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Loading from "../../Components/Loading";
+import { FaStar } from "react-icons/fa";
 
 function Rooms() {
   const [rooms, setRooms] = useState([]);
@@ -54,7 +55,7 @@ function Rooms() {
   if (loading && page === 1) return <Loading />;
 
   return (
-    <div className="p-6">
+    <div className="w-[95%] mx-auto mt-6">
       {/* Filter + Sort */}
       <form onSubmit={handleFilter} className="flex items-center gap-4 mb-6">
         <input
@@ -62,67 +63,104 @@ function Rooms() {
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="border rounded px-3 py-1"
+          className="border focus:outline-none rounded px-3 py-1"
         />
         <input
           type="number"
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          className="border rounded px-3 py-1"
+          className="border focus:outline-none rounded px-3 py-1"
         />
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="border rounded px-3 py-1"
+          className="border rounded px-4 py-2"
         >
-          <option value="">Sort by Price</option>
+          <option className="" value="">Sort by Price</option>
           <option value="asc">Low → High</option>
           <option value="desc">High → Low</option>
         </select>
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+          className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-700"
         >
           Apply
         </button>
       </form>
 
+      <div>
+        <h1 className="text-6xl font-semibold heading-font text-center my-12"> HERE ALL ROOM</h1>
+      </div>
+
       {/* Rooms Grid */}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {rooms.map((room) => (
-          <div
-            key={room._id}
-            className="border rounded-lg shadow cursor-pointer hover:shadow-lg transition"
-            onClick={() => navigate(`/rooms/${room._id}`)}
-          >
-            <img
-              src={room.image}
-              alt={room.name}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-            <div className="p-4">
-              <h2 className="font-bold text-lg">{room.name}</h2>
-              <p>
-                {room.pricePerNight} {room.currency} / night
-              </p>
-              <p className="text-gray-500 text-sm">
-                {room.reviews?.length || 0} Reviews
-              </p>
-              <p className="text-red-500 font-medium">
-                {room.availability ? "Available" : "Not Available"}
-              </p>
-            </div>
-          </div>
-        ))}
+  <div
+    key={room._id}
+    className="card card-compact w-full bg-base-100 shadow-xl hover:shadow-2xl transition cursor-pointer p-4"
+    onClick={() => navigate(`/rooms/${room._id}`)}
+  >
+    <figure>
+      <img
+        src={room.image}
+        alt={room.name}
+        className="w-full h-48 object-cover rounded-t-lg"
+      />
+    </figure>
+
+    <div className="card-body">
+      <h2 className="card-title text-2xl">{room.name}</h2>
+
+      <p className="text-[#1E293B] font-semibold text-base">
+        Price: {room.pricePerNight} {room.currency} / night
+      </p>
+
+      <p className="text-gray-600 font-medium">
+        Reviews: {room.reviews?.length || 0}
+      </p>
+
+      <p className="flex items-center text-base text-yellow-500 font-semibold gap-1">
+        <FaStar style={{ fontSize: "20px" }} />
+        {room.averageRating ? room.averageRating.toFixed(1) : <FaStar style={{ fontSize: "20px" }} />
+        }
+
+      </p>
+
+      <p
+        className={`font-medium ${
+          room.availability
+            ? "border rounded-full p-1 w-[25%] text-center text-green-600"
+            : "border rounded-full p-1 w-[30%] text-center text-red-600"
+        }`}
+      >
+        {room.availability ? "Available" : "Not Available"}
+      </p>
+
+      <div className="card-actions justify-end mt-4">
+        <button
+          className="btn rounded bg-[#174fa8] border hover:bg-transparent hover:border-[#588adb] hover:text-[#174fa8] text-white w-full"
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/rooms/${room._id}`);
+          }}
+        >
+          View Details
+        </button>
+      </div>
+    </div>
+  </div>
+))}
+
       </div>
 
       {/* Load More Button */}
       {page < totalPages && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center my-14">
           <button
             onClick={() => setPage((prev) => prev + 1)}
-            className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 cursor-pointer"
+            className="flex items-center gap-2 bg-blue-300 w-[15%] text-center justify-center py-2 font-semibold text-gray-700 rounded hover:text-white hover:bg-blue-600 transition"
           >
             Load More
           </button>

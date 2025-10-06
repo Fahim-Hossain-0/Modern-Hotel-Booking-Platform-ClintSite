@@ -8,6 +8,7 @@ import Rooms from "../Pages/RoomsPage/Rooms";
 import RoomsDetails from "../Pages/RoomsPage/RoomsDetails";
 import MyBookingPage from "../Pages/MyBookingPage/MyBookingPage";
 import MyBookingDetails from "../Pages/MyBookingPage/MyBookingDetails";
+import PrivateRouter from "./PrivateRouter";
 // import AuthLayout from "../Layout/AuthLayout";
 
 export const router = createBrowserRouter([
@@ -26,15 +27,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/rooms/:id",
-                Component:RoomsDetails
+                // Component:RoomsDetails,
+                element:<PrivateRouter><RoomsDetails></RoomsDetails></PrivateRouter>
             },
             {
                 path: "/my-booking",
-                Component:MyBookingPage
+                // Component:MyBookingPage
+                element:<PrivateRouter><MyBookingPage></MyBookingPage></PrivateRouter>
             },
             {
                 path:"/my-booking/:id",
-                Component:MyBookingDetails
+                // Component:MyBookingDetails,
+                element:<PrivateRouter><MyBookingDetails></MyBookingDetails></PrivateRouter>
             }
         ]   
        },

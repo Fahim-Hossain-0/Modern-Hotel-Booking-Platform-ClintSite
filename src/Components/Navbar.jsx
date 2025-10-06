@@ -9,6 +9,7 @@ const Navbar = () => {
       <li className=''><NavLink to='/'>Home</NavLink></li>
       <li className=''><NavLink to='/rooms'>Rooms Page</NavLink></li>
       <li className=''><NavLink to='/my-booking'>My booking</NavLink></li>
+      <li className=''><NavLink to='/contact'>contact</NavLink></li>
     </>
   const handleSingOut = () => {
     signOutUser().catch(error => console.error(error));

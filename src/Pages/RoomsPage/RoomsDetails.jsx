@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import BookingNowButton from "./BookingNowButton";
 import axios from "axios";
+// import { FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 function RoomDetails() {
   const { id } = useParams();
@@ -28,7 +30,10 @@ function RoomDetails() {
       <div className="mt-4 space-y-3">
         {room.reviews?.map((rev, index) => (
           <div key={index} className="border p-3 rounded">
-            <p className="font-semibold">{rev.user} ⭐ {rev.rating}</p>
+            <p className="font-semibold">
+              {rev.user} 
+              </p>
+              <p className="font-medium flex gap-1"> <FaStar style={{ fontSize: "20px" , color:"yellow" }}  /> {rev.rating}</p>
             <p>{rev.comment}</p>
           </div>
         ))}

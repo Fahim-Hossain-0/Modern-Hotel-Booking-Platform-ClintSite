@@ -19,44 +19,7 @@ const BookingNowButton = ({ room }) => {
 
   const handleCancel = () => setIsModalOpen(false);
 
-  // const handleConfirmBooking = async () => {
-  //   try {
-  //     if (!availability) {
-  //       Swal.fire({
-  //         icon: "warning",
-  //         title: "Room Not Available",
-  //         text: "Sorry, this room is already booked!",
-  //       });
-  //       return;
-  //     }
-
-  //     await axios.patch(`http://localhost:5000/rooms/${room._id}`, {
-  //       bookedBy: user.displayName,
-  //       email: user?.email,
-  //       availability: false,
-  //       bookedDate: selectedDate,
-  //     });
-
-  //     // update local state
-  //     setLocalRoom((prev) => ({ ...prev, availability: false }));
-
-  //     setIsModalOpen(false);
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Booked!",
-  //       text: `${name} has been booked successfully!`,
-  //       timer: 2000,
-  //       showConfirmButton: false,
-  //     });
-  //   } catch (error) {
-  //     console.error("Booking failed:", error);
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Booking Failed",
-  //       text: "There was an issue booking the room. Please try again later.",
-  //     });
-  //   }
-  // };
+  
   
   const handleConfirmBooking = async () => {
       try {
@@ -126,7 +89,7 @@ const BookingNowButton = ({ room }) => {
           {availability ? (
               <button
                   onClick={handleBooked}
-                  className="btn btn-primary mt-4 w-full"
+                  className="btn bg-[#003366] border hover:border-[#003366] hover:bg-transparent hover:text-[#003366] text-white mt-4 w-full"
               >
                   Book Now
               </button>
@@ -139,7 +102,8 @@ const BookingNowButton = ({ room }) => {
           {/* Modal */}
 
           {isModalOpen && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div className="fixed inset-0 bg-black/30 backdrop-blur-[3px] flex justify-center items-center z-50">
+
                   <div className="bg-white p-6 rounded-lg w-80">
                       {/* Date Picker */}
                       <div className="mb-4">

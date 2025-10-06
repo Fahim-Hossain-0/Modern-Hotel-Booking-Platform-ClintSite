@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Loading from "../../Components/Loading";
 import { FaStar } from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
 const TopRoom = () => {
   const [topRated, setTopRated] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -81,6 +82,10 @@ const TopRoom = () => {
           </div>
         ))}
       </div>
+
+<div className="flex justify-center items-center mt-18">
+    <Link onClick={()=>window.screenTop(0,0)} to='/rooms' className="flex items-center gap-2 bg-blue-300 w-[15%] text-center justify-center py-2 font-semibold text-gray-700 rounded hover:text-white hover:bg-blue-600 transition">See All <FaArrowRightLong /></Link>
+</div>
     </div>
   );
 };
