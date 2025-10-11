@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 // import axios from "axios";
 import Loading from "../../Components/Loading";
 import MyBookingButton from "./MybookingButton";
 import { FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { AuthContext } from "../../Context/AuthContext";
 
 const MyBookingDetails = () => {
+  const {user}=useContext(AuthContext)
   const { id } = useParams();
   const [booking, setBooking] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -46,11 +48,15 @@ const axiosSecure =useAxiosSecure()
       </p>
 
       <p className="text-gray-700 mt-1">Type: {booking.type}</p>
+      
       <p className="text-gray-700 mt-1">
-        Booked Date: {booking.bookedDate || "Not selected"}
+        Booked Date: {booking.email === user?.email ?booking.bookedDate : "Hidden"}
       </p>
+
       <p className="text-gray-700 mt-1">Booked By: {booking.bookedBy}</p>
-      <p className="text-gray-700 mt-1">Email: {booking.email}</p>
+     <p className="text-gray-700 mt-1">
+  Email: {booking.email === user?.email ? booking.email : "Hidden"}
+</p>
 
       {/* Booking Action Button */}
       <div className="mt-4">

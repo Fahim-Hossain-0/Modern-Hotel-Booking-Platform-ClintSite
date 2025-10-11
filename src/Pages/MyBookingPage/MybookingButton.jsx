@@ -163,13 +163,13 @@ const MyBookingButton = ({ booking }) => {
           });
       }
   };
-
+const isBookedByCurrentUser = localBooking.email === user?.email;
   
   
     return (
         <>
             {/* Action Buttons */}
-            {!availability && (
+            {!availability && isBookedByCurrentUser && (
                 <div className="flex flex-col md:flex-row gap-2 mt-4">
                     <button
                         onClick={() => setIsCancelModalOpen(true)}
