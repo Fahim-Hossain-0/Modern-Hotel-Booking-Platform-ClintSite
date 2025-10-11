@@ -48,7 +48,7 @@ const BannerCarousel = () => {
               <p className="mt-2 text-lg font-medium opacity-50">Indulge in world-class amenities and personalized service.</p>
 
                <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
             </div>
            
@@ -67,7 +67,7 @@ const BannerCarousel = () => {
               <h2 className="text-5xl font-bold banner-font">Your Perfect Stay Awaits</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Relax in beautifully designed rooms made just for you.</p>
                              <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
 
             </div>
@@ -86,7 +86,7 @@ const BannerCarousel = () => {
               <h2 className="text-5xl font-bold banner-font">Unwind in Style, Stay with Us</h2>
               <p className="mt-2 text-lg font-medium opacity-50">From cozy suites to fine dining — everything at your fingertips.</p>
                              <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
 
             </div>
@@ -105,7 +105,7 @@ const BannerCarousel = () => {
               <p className="mt-2 text-lg font-medium opacity-50">A warm welcome, premium comfort, and unforgettable memories.</p>
 
                              <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
 
             </div>
@@ -123,7 +123,7 @@ const BannerCarousel = () => {
               <h2 className="text-5xl font-bold banner-font">Where Comfort Meets Affordability</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Enjoy a premium experience at a price you’ll love.</p>
                              <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
 
             </div>
@@ -141,7 +141,7 @@ const BannerCarousel = () => {
               <h2 className="text-5xl font-bold banner-font">Book Your Dream Stay Today</h2>
               <p className="mt-2 text-lg font-medium opacity-50">Seamless booking, luxury stays, and lasting experiences.</p>
                              <div className="mt-4">
-              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/roomsPage'>See Rooms</Link></button>
+              <button className="cursor-pointer bg-red-400 px-4 py-2 rounded-2xl"><Link to='/rooms'>See Rooms</Link></button>
             </div>
 
             </div>

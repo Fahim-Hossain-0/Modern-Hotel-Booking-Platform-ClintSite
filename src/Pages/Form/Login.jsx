@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
-import axios from "axios";
+// import axios from "axios";
 import Loading from "../../Components/Loading";
 import { FaRegEye, FaRegEyeSlash, FaGoogle } from "react-icons/fa";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Login = () => {
+  const axiosSecure = useAxiosSecure()
   const { loginUser, googleLogin } = useContext(AuthContext); // add googleSignIn in your AuthProvider
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -27,7 +29,7 @@ const Login = () => {
       const userCredential = await loginUser(email, password);
       const user = userCredential.user;
 
-      await axios.patch("http://localhost:5000/users", {
+      await axiosSecure.patch("/users", {
         email: user.email,
         uid: user.uid,
         provider: "password",
@@ -57,7 +59,7 @@ const Login = () => {
       const user = result.user;
 
       // Send Google login data to backend
-      await axios.post("http://localhost:5000/users", {
+      await axiosSecure.post("/users", {
         email: user.email,
         uid: user.uid,
         displayName: user.displayName,

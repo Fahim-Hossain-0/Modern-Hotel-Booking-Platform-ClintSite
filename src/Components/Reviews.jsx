@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Loading from './Loading';
 import { Rating } from "@smastrom/react-rating";
@@ -10,13 +10,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Autoplay, Pagination } from "swiper/modules";
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const Reviews = () => {
+  const axiosSecure = useAxiosSecure()
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/reviews')
+    axiosSecure.get('/reviews')
       .then(res => {
         setReviews(res.data);
         setLoading(false);

@@ -4,10 +4,12 @@ import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import axios from "axios";
+// import axios from "axios";
 import Loading from "../../Components/Loading";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Register = () => {
+  const axiosSecure = useAxiosSecure()
   const { createUser,googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -53,7 +55,7 @@ const Register = () => {
         photoURL,
       };
 
-      await axios.post("http://localhost:5000/users", postData);
+      await axiosSecure.post("/users", postData);
 
       // 4️⃣ Show success alert
       Swal.fire({
@@ -86,7 +88,7 @@ const Register = () => {
       const user = result.user;
 
       // Send Google login data to backend
-      await axios.post("http://localhost:5000/users", {
+      await axiosSecure.post("/users", {
         email: user.email,
         uid: user.uid,
         displayName: user.displayName,

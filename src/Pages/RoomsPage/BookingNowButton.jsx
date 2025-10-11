@@ -1,12 +1,14 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Context/AuthContext";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const BookingNowButton = ({ room }) => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure()
   console.log(user);
   const [selectedDate, setSelectedDate] = useState(null);
   // local state copy of room
@@ -44,7 +46,7 @@ const BookingNowButton = ({ room }) => {
           }
 
           // 3️⃣ Proceed with booking
-          await axios.patch(`http://localhost:5000/rooms/${room._id}`, {
+          await axiosSecure.patch(`/rooms/${room._id}`, {
               bookedBy: user.displayName,
               email: user?.email,
               availability: false,

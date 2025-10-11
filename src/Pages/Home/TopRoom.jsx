@@ -1,17 +1,20 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import Loading from "../../Components/Loading";
 import { FaStar } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import axios from "axios";
 const TopRoom = () => {
+  const axiosSecure = useAxiosSecure()
   const [topRated, setTopRated] = useState([]);
   const [loading, setLoading] = useState(true);
+  // const axiosSecure=useAxiosSecure()
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/rooms/top-rated?limit=5`)
+    axiosSecure.get(`/rooms/top-rated?limit=5`)
       .then((res) => {
         setTopRated(res.data);
         setLoading(false);

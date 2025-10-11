@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import axios from "axios";
+// import axios from "axios";
 import Loading from "../../Components/Loading";
 import MyBookingButton from "./MybookingButton";
 import { FaStar } from "react-icons/fa";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyBookingDetails = () => {
   const { id } = useParams();
   const [booking, setBooking] = useState(null);
   const [loading, setLoading] = useState(true);
-
+const axiosSecure =useAxiosSecure()
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/rooms/${id}`)
+    axiosSecure
+      .get(`/rooms/${id}`)
       .then((res) => {
         setBooking(res.data);
         setLoading(false);
@@ -28,7 +29,7 @@ const MyBookingDetails = () => {
   if (!booking) return <p>No booking found</p>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-8 mt-20 max-w-4xl mx-auto ">
       {/* Room Image */}
       <img
         src={booking.image}

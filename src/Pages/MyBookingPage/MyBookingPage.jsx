@@ -1,20 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-import axios from "axios";
+// import axios from "axios";
 import Loading from "../../Components/Loading";
 import { useNavigate } from "react-router";
 import { FaStar } from "react-icons/fa6";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyBookingPage = () => {
   const { user } = useContext(AuthContext);
   const [myBookings, setMyBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const axiosSecure = useAxiosSecure()
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.email) {
-      axios
-        .get(`http://localhost:5000/my-booking?email=${user.email}`)
+      
+        axiosSecure.get(`/my-booking?email=${user.email}`)
         .then((res) => {
           setMyBookings(res.data);
           setLoading(false);
@@ -29,7 +31,8 @@ const MyBookingPage = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="p-6">
+    <div className="w-[95%] mx-auto pt-24 min-h-screen">
+      <h1 className="text-4xl font-bold text-center mb-8">My Booking</h1>
       {myBookings.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {myBookings.map((booking) => (
@@ -64,15 +67,7 @@ const MyBookingPage = () => {
                     : "No rating"}
                 </p>
 
-                {/* <p
-                  className={`font-medium ${
-                    booking.availability
-                      ? "border rounded-full p-1 w-[25%] text-center text-green-600"
-                      : "border rounded-full p-1 w-[30%] text-center text-red-600"
-                  }`}
-                >
-                  {booking.availability ? "Available" : "Not Available"}
-                </p> */}
+               
 
                 <div className="card-actions justify-end mt-4">
                   <button

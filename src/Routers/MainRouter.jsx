@@ -9,55 +9,38 @@ import RoomsDetails from "../Pages/RoomsPage/RoomsDetails";
 import MyBookingPage from "../Pages/MyBookingPage/MyBookingPage";
 import MyBookingDetails from "../Pages/MyBookingPage/MyBookingDetails";
 import PrivateRouter from "./PrivateRouter";
-// import AuthLayout from "../Layout/AuthLayout";
+import Contact from "../Pages/Contact/Contact";
+import Error from "../Pages/Error/Error";
 
 export const router = createBrowserRouter([
-       {
+    {
         path: "/",
         Component: MainLayout,
         children: [
-            {   
-                index:true,
-                path: "/",
-                Component:Home
+            { index: true, Component: Home },
+            { path: "/rooms", Component: Rooms },
+            { 
+                path: "/rooms/:id", 
+                element: <PrivateRouter><RoomsDetails /></PrivateRouter> 
             },
-            {
-                path: "/Rooms",
-                Component: Rooms
+            { 
+                path: "/my-booking", 
+                element: <PrivateRouter><MyBookingPage /></PrivateRouter> 
             },
-            {
-                path: "/rooms/:id",
-                // Component:RoomsDetails,
-                element:<PrivateRouter><RoomsDetails></RoomsDetails></PrivateRouter>
+            { 
+                path: "/my-booking/:id", 
+                element: <PrivateRouter><MyBookingDetails /></PrivateRouter> 
             },
-            {
-                path: "/my-booking",
-                // Component:MyBookingPage
-                element:<PrivateRouter><MyBookingPage></MyBookingPage></PrivateRouter>
-            },
-            {
-                path:"/my-booking/:id",
-                // Component:MyBookingDetails,
-                element:<PrivateRouter><MyBookingDetails></MyBookingDetails></PrivateRouter>
-            }
-        ]   
-       },
-
-       // AuthLayout
-          {
+            { path: "/contact", Component: Contact }
+        ]
+    },
+    {
         path: "/auth",
         Component: AuthLayout,
         children: [
-            {
-                path: "/auth/register",
-                Component: Register
-
-            },
-            {
-                path: "/auth/login",
-                Component: Login
-            }
+            { path: "/auth/register", Component: Register },
+            { path: "/auth/login", Component: Login }
         ]
-    }, 
-
-])
+    },
+    { path: "*", Component: Error }
+]);

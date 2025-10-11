@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const RoomReviews = ({ booking }) => {
   const [reviews, setReviews] = useState([]);
-
+const axiosSecure = useAxiosSecure()
   useEffect(() => {
-    axios.get(`http://localhost:5000/rooms/${booking._id}`)
+    axiosSecure.get(`/rooms/${booking._id}`)
       .then(res => setReviews(res.data.reviews || []))
       .catch(err => console.error(err));
   }, [booking]);

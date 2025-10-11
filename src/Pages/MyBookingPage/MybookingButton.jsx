@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/AuthContext";
@@ -6,9 +6,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyBookingButton = ({ booking }) => {
     const { user } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure()
     const [localBooking, setLocalBooking] = useState(booking);
     const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
     const [isDateModalOpen, setIsDateModalOpen] = useState(false);
@@ -32,7 +34,7 @@ const MyBookingButton = ({ booking }) => {
                 return;
             }
 
-            await axios.patch(`http://localhost:5000/rooms/${booking._id}`, {
+            await axiosSecure.patch(`/rooms/${booking._id}`, {
                 availability: true,
                 bookedDate: null,
                 bookedBy: null,
@@ -78,7 +80,7 @@ const MyBookingButton = ({ booking }) => {
         }
 
         try {
-            await axios.patch(`http://localhost:5000/rooms/${booking._id}`, {
+            await axiosSecure.patch(`/rooms/${booking._id}`, {
                 
                 bookedDate: selectedDate,
             });
@@ -128,7 +130,7 @@ const MyBookingButton = ({ booking }) => {
 
       try {
           // Send to backend to add to reviews array
-         await axios.post(`http://localhost:5000/rooms/review/${booking._id}`, {
+         await axiosSecure.post(`/rooms/review/${booking._id}`, {
              review: newReview,
          });
 
@@ -168,7 +170,7 @@ const MyBookingButton = ({ booking }) => {
         <>
             {/* Action Buttons */}
             {!availability && (
-                <div className="flex gap-2 mt-4">
+                <div className="flex flex-col md:flex-row gap-2 mt-4">
                     <button
                         onClick={() => setIsCancelModalOpen(true)}
                         className="btn bg-red-600 text-white"

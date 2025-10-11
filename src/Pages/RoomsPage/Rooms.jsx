@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Loading from "../../Components/Loading";
 import { FaStar } from "react-icons/fa";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 function Rooms() {
   const [rooms, setRooms] = useState([]);
@@ -12,6 +13,7 @@ function Rooms() {
   const [sortOrder, setSortOrder] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const axiosSecure = useAxiosSecure()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,8 +31,9 @@ function Rooms() {
       params.append("limit", 6);
       params.append("page", page);
 
-      const url = `http://localhost:5000/rooms?${params.toString()}`;
-      const res = await axios.get(url);
+      const url = `/rooms?${params.toString()}`;
+      console.log("Fetching rooms from:", url);
+      const res = await axiosSecure.get(url);
 
       // If it's page 1, reset data. If load more, append.
       if (page === 1) {
@@ -131,8 +134,8 @@ function Rooms() {
       <p
         className={`font-medium ${
           room.availability
-            ? "border rounded-full p-1 w-[25%] text-center text-green-600"
-            : "border rounded-full p-1 w-[30%] text-center text-red-600"
+            ? "border rounded-full p-1 lg:w-[25%] text-center text-green-600"
+            : "border rounded-full p-1 lg:w-[30%] text-center text-red-600"
         }`}
       >
         {room.availability ? "Available" : "Not Available"}
